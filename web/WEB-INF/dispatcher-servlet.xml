@@ -14,28 +14,32 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
-    <bean id="ItemsController1" name="/queryItems.action" class="cn.icast.ssm.controller.ItemsController1"></bean>
-    <bean id="ItemsController2" class="cn.icast.ssm.controller.ItemsController2"/>
-    <!-- 处理器映射器-->
-    <!-- 根据bean的name进行查找Handler 将action的url配置在bean的name中 -->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+    <!--<bean id="ItemsController1" name="/queryItems.action" class="cn.icast.ssm.controller.ItemsController1"></bean>-->
+    <!--<bean id="ItemsController2" class="cn.icast.ssm.controller.ItemsController2"/>-->
+    <context:component-scan base-package="cn.icast.ssm.controller"/>
+    <!--&lt;!&ndash; 处理器映射器&ndash;&gt;-->
+    <!--&lt;!&ndash; 根据bean的name进行查找Handler 将action的url配置在bean的name中 &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
 
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+        <!--<property name="mappings">-->
+            <!--<props>-->
+                <!--<prop key="/queryItems1.action">ItemsController1</prop>-->
+                <!--<prop key="/queryItems2.action">ItemsController1</prop>-->
+                <!--<prop key="/queryItems3.action">ItemsController2</prop>-->
+            <!--</props>-->
+        <!--</property>-->
 
-    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="/queryItems1.action">ItemsController1</prop>
-                <prop key="/queryItems2.action">ItemsController1</prop>
-                <prop key="/queryItems3.action">ItemsController2</prop>
-            </props>
-        </property>
+    <!--</bean>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!--<mvc:annotation-driven></mvc:annotation-driven>-->
+    <!--&lt;!&ndash; 处理器适配器，都会实现AdaterHandler-->
+    <!--&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>-->
 
-    </bean>
-    <!-- 处理器适配器，都会实现AdaterHandler
-    -->
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-    <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>
-    <!-- 处理器解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <!--&lt;!&ndash; 处理器解析器&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>-->
 
 </beans>
